@@ -4,8 +4,8 @@
   --panel-border: rgba(255,255,255,0.12);
   --text: #e6e9ef;
   --muted: #a0a6b3;
-  --accent: #7c3aed; /* violet */
-  --accent-2: #06b6d4; /* cyan */
+  --accent: #7c3aed;
+  --accent-2: #06b6d4;
   --glow: 0 0 24px rgba(124,58,237,.35);
 }
 
@@ -70,6 +70,7 @@ h1{
   border-radius:22px;
   padding:24px;
   backdrop-filter: blur(10px);
+  margin-top: 24px;
 }
 
 .grid{
