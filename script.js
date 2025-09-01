@@ -7,8 +7,7 @@ function filterList(inputId, listId){
   });
 }
 
-<script>
-  function checkOrientation() {
+function checkOrientation() {
     if (window.innerHeight > window.innerWidth) {
       document.getElementById("landscape-warning").style.display = "block";
     } else {
@@ -19,4 +18,4 @@ function filterList(inputId, listId){
   window.addEventListener("load", checkOrientation);
   window.addEventListener("resize", checkOrientation);
   window.addEventListener("orientationchange", checkOrientation);
-</script>
+
