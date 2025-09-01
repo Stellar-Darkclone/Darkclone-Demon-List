@@ -36,11 +36,10 @@ document.getElementById("secret-text").addEventListener("click", () => {
     return;
   }
 
-  // reset counter if no triple click within 1.5s
   clearTimeout(tapTimer);
   tapTimer = setTimeout(() => {
     tapCount = 0;
-  }, 1500);
+  }, 2000);
 });
 
 
