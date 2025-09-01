@@ -23,23 +23,30 @@ function checkOrientation() {
 
 // -------------------------------------------------------------------------------
 
-let tapCount = 0;
-let tapTimer;
+document.addEventListener("DOMContentLoaded", () => {
+  let tapCount = 0;
+  let tapTimer;
 
-document.getElementById("secret-text").addEventListener("click", () => {
-  tapCount++;
+  const secretText = document.getElementById("secret-text");
 
-  if (tapCount === 3) {
-    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
-    tapCount = 0; // reset
-    clearTimeout(tapTimer);
-    return;
+  if (secretText) {
+    secretText.addEventListener("click", () => {
+      tapCount++;
+
+      if (tapCount === 3) {
+        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+        tapCount = 0; // reset
+        clearTimeout(tapTimer);
+        return;
+      }
+
+      // reset if no 3rd click within 1.2s
+      clearTimeout(tapTimer);
+      tapTimer = setTimeout(() => {
+        tapCount = 0;
+      }, 1200);
+    });
   }
-
-  clearTimeout(tapTimer);
-  tapTimer = setTimeout(() => {
-    tapCount = 0;
-  }, 2000);
 });
 
 
