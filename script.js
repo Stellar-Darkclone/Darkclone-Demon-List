@@ -6,3 +6,17 @@ function filterList(inputId, listId){
     li.style.display = txt.includes(q) ? "" : "none";
   });
 }
+
+<script>
+  function checkOrientation() {
+    if (window.innerHeight > window.innerWidth) {
+      document.getElementById("landscape-warning").style.display = "block";
+    } else {
+      document.getElementById("landscape-warning").style.display = "none";
+    }
+  }
+
+  window.addEventListener("load", checkOrientation);
+  window.addEventListener("resize", checkOrientation);
+  window.addEventListener("orientationchange", checkOrientation);
+</script>
