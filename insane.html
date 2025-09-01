@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Insane Demon List</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="backbar">
+      <a class="button" href="index.html">← Back to Home</a>
+      <div class="search">
+        <input id="q3" placeholder="Search the list..." oninput="filterList('q3','insaneList')"/>
+        <button class="button" onclick="document.getElementById('q3').value='';filterList('q3','insaneList')">Clear</button>
+      </div>
+    </div>
+
+    <h1>Insane Demon List</h1>
+    <p class="lead">Structure mirrors the extreme list.</p>
+
+    <div class="panel section">
+      <h2>🌷 Completed</h2>
+      <ul class="clean">
+        <li>Shoebill — 1,536 attempts | Last Death: 96% | Completed: 2023-06-02 (120hz PC) — <a href="https://youtu.be/ITSFT4HIcRs?si=cCYFH8yi5GVd8laU" target="_blank" rel="noopener">Video</a></li>
+        <li>Footnotes — 1,311 attempts | Last Death: 92% | Completed: 2023-06-30 (120hz PC) — <a href="https://youtu.be/0tm5XpFwxTM?si=m6EcSoyKRN59QDoy" target="_blank" rel="noopener">Video</a></li>
+        <li>Acropolis — 4,006 attempts | Last Death: 68% | Completed: 2023-07-22 (120hz PC) — <a href="https://youtu.be/S_TGJHl8vCo?si=H70XwBY-75Qs3XiE" target="_blank" rel="noopener">Video</a></li>
+        <li>My Song — 11,679 attempts | Last Death: 67% | Completed: 2025-08-09 (240hz PC) — <a href="https://www.youtube.com/results?search_query=My+Song+by+LGenoxide+100%25+(Insane+Demon)" target="_blank" rel="noopener">Video</a></li>
+      </ul>
+    </div>
+
+    <div class="panel section">
+      <h2>‼ This Month's Demon Progress ‼</h2>
+      <ul class="clean" id="insaneList">
+        <li>crossroads (98%)</li>
+        <li>My Time (??)</li>
+        <li>FFFFFF (M-59%)</li>
+        <li>MikuMikuMikuMiku (M-37%) [59%-86%][78%-90%][87%-100%]</li>
+      </ul>
+    </div>
+
+    <div class="panel section">
+      <h2>👾 On Wishlist</h2>
+      <ul class="clean">
+        <li>Ice Carbon Diablo X</li>
+        <li>Leyak</li>
+        <li>Spectral Edge</li>
+        <li>Windy Landscape</li>
+        <li>Dual Knight</li>
+      </ul>
+    </div>
+
+    <div class="panel section">
+      <h2>✅ List Logs for 2025</h2>
+      <ul class="clean">
+        <li><a href="https://youtu.be/1JtvTR9Ss34?si=mVhCL4PXepXu85xR" target="_blank" rel="noopener">Log clip 1</a></li>
+        <li><a href="https://youtu.be/ITSFT4HIcRs?si=cCYFH8yi5GVd8laU" target="_blank" rel="noopener">Log clip 2</a></li>
+        <li><a href="https://youtu.be/0tm5XpFwxTM?si=m6EcSoyKRN59QDoy" target="_blank" rel="noopener">Log clip 3</a></li>
+        <li><a href="https://youtu.be/S_TGJHl8vCo?si=mVhCL4PXepXu85xR" target="_blank" rel="noopener">Log clip 4</a></li>
+      </ul>
+    </div>
+
+    <p class="footer">Data sourced from your merged PDF. Update this page anytime.</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
