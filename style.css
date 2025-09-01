@@ -118,3 +118,7 @@ ul.clean li:last-child{border-bottom:none}
   .hero{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
 }
+.nav-links {
+  display: flex;
+  gap: 12px; /* spacing between the two buttons */
+}
