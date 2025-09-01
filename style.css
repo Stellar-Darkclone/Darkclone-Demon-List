@@ -122,3 +122,9 @@ ul.clean li:last-child{border-bottom:none}
   display: flex;
   gap: 12px; /* spacing between the two buttons */
 }
+.logo-img {
+  width: 40px;   /* adjust size */
+  height: 40px;
+  border-radius: 8px; /* optional: gives it rounded corners */
+  object-fit: cover;  /* keeps image proportions */
+}
