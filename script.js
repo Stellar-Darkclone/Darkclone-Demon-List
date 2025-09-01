@@ -7,6 +7,8 @@ function filterList(inputId, listId){
   });
 }
 
+// -------------------------------------------------------------------------------
+
 function checkOrientation() {
     if (window.innerHeight > window.innerWidth) {
       document.getElementById("landscape-warning").style.display = "block";
@@ -18,4 +20,27 @@ function checkOrientation() {
   window.addEventListener("load", checkOrientation);
   window.addEventListener("resize", checkOrientation);
   window.addEventListener("orientationchange", checkOrientation);
+
+// -------------------------------------------------------------------------------
+
+let tapCount = 0;
+let tapTimer;
+
+document.getElementById("secret-text").addEventListener("click", () => {
+  tapCount++;
+
+  if (tapCount === 3) {
+    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+    tapCount = 0; // reset
+    clearTimeout(tapTimer);
+    return;
+  }
+
+  // reset counter if no triple click within 1.5s
+  clearTimeout(tapTimer);
+  tapTimer = setTimeout(() => {
+    tapCount = 0;
+  }, 1500);
+});
+
 
