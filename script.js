@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // -------------------------------------------------------------------------------
 
-<script>
 function searchDemon() {
   const input = document.getElementById("searchInput").value.toLowerCase().trim();
   if (!input) return;
@@ -63,8 +62,8 @@ function searchDemon() {
     const text = li.innerText.toLowerCase();
     if (text.includes(input) && !found) {
       li.scrollIntoView({ behavior: "smooth", block: "center" });
-      li.style.background = "rgba(255, 255, 0, 0.2)"; // highlight result
-      setTimeout(() => li.style.background = "", 2000); // remove highlight
+      li.style.background = "rgba(255, 255, 0, 0.2)"; // highlight
+      setTimeout(() => li.style.background = "", 2000);
       found = true;
     }
   });
@@ -74,13 +73,21 @@ function searchDemon() {
   }
 }
 
-// allow Enter key to trigger search
-document.getElementById("searchInput").addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    searchDemon();
+// Attach events once the page loads
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("searchInput");
+  const button = document.getElementById("searchBtn");
+
+  if (input && button) {
+    button.addEventListener("click", searchDemon);
+    input.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        searchDemon();
+      }
+    });
   }
 });
-</script>
+
 
 // THIS JAVASCRIPT FILE IS HEAVILY SPONSORED BY CHATGPT BECAUSE I SUCK AT JS LOL
 
