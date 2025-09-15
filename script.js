@@ -68,14 +68,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('.search-highlight')
       .forEach(el => el.classList.remove('search-highlight'));
 
-    // find first item that includes the query (name search only)
     const found = items.find(li =>
       normalize(li.innerText).includes(q)
     );
 
     if (found) {
-      // smooth scroll with offset so it's not hidden under top bar
-      const yOffset = -100; // tweak this depending on your header height
+      // smooth scroll with offset so it's not hidden under header
+      const yOffset = -100; // adjust if needed
       const y = found.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
 
@@ -89,11 +88,21 @@ document.addEventListener("DOMContentLoaded", () => {
   function initSearch() {
     const form = document.getElementById('searchForm');
     const input = document.getElementById('searchInput');
+    const button = document.getElementById('searchBtn');
+
     if (form && input) {
+      // prevent refresh
       form.addEventListener('submit', e => {
         e.preventDefault();
         doSearch(input.value);
       });
+
+      if (button) {
+        button.addEventListener('click', e => {
+          e.preventDefault(); // stop form refresh
+          doSearch(input.value);
+        });
+      }
     }
   }
 
