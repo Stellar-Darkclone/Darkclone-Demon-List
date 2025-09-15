@@ -7,18 +7,16 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-  <a class="button" href="index.html">← Back to Home</a>
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search demon by name or ID..." 
-           style="padding:6px; width:220px; border-radius:6px; border:1px solid #ccc;">
-    <button onclick="searchDemon()" 
-            style="padding:6px 10px; border:none; border-radius:6px; background:var(--accent); color:#fff; cursor:pointer;">
-      Search
-    </button>
-  </div>
-</div>
+  <div class="container">
 
+    <!-- Back button + search bar -->
+    <div class="backbar">
+      <a class="button" href="index.html">← Back to Home</a>
+      <form id="searchForm" class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search demon by name or ID..." autocomplete="off">
+        <button id="searchBtn" type="submit">Search</button>
+      </form>
+    </div>
 
     <h1>Extreme Demon List</h1>
     <p class="lead">Rankings according to the Global Demon List. () - Indicates Progress. [] - Indicates Runs.</p>
@@ -57,7 +55,7 @@
     <div class="panel section">
       <h2>🤑 Fun Levels I Want to Beat</h2>
       <ul class="clean">
-        <li> 1488 - Troll Level (74%) </li>
+        <li>1488 - Troll Level (74%)</li>
         <li>1313 - Miscellaneous Memory (87%)</li>
         <li>1225 - Shukufuku (M-21%)(49%) [27%-55%][38%-83%][47%-100%]</li>
       </ul>
@@ -75,7 +73,7 @@
     <div class="panel section">
       <h2>👾 On Wishlist</h2>
       <ul class="clean">
-        <li>1504 - CICADA3302 (29%)[47%-77%][71%-97%] </li>
+        <li>1504 - CICADA3302 (29%)[47%-77%][71%-97%]</li>
         <li>1477 - Vertigo</li>
         <li>1433 - Lost love (2%)</li>
         <li>1429 - Niwa (4%)</li>
@@ -83,7 +81,7 @@
         <li>1297 - Without U (50%)[72%-88%]</li>
         <li>1264 - Doradura (2%)</li>
         <li>1182 - I never dream (1%)</li>
-        <li>1149 - Heartbeat </li>
+        <li>1149 - Heartbeat</li>
         <li>1120 - Hopping Over Puddles (38%)</li>
         <li>1113 - Necropolix (1%)</li>
         <li>1062 - Wind Storm (17%)</li>
