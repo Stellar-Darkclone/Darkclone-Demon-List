@@ -85,7 +85,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (found) {
-      found.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // custom scroll instead of scrollIntoView
+      const yOffset = -100; // adjust depending on header height
+      const y = found.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+
       found.classList.add('search-highlight');
       setTimeout(() => found.classList.remove('search-highlight'), 3000);
     } else {
@@ -110,7 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initSearch();
   }
 })();
-
 
 
 // THIS JAVASCRIPT FILE IS HEAVILY SPONSORED BY CHATGPT BECAUSE I SUCK AT JS LOL
