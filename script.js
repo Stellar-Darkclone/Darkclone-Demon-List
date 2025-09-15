@@ -49,4 +49,38 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// -------------------------------------------------------------------------------
+
+<script>
+function searchDemon() {
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
+  if (!input) return;
+
+  const items = document.querySelectorAll("ul.clean li");
+  let found = false;
+
+  items.forEach(li => {
+    const text = li.innerText.toLowerCase();
+    if (text.includes(input) && !found) {
+      li.scrollIntoView({ behavior: "smooth", block: "center" });
+      li.style.background = "rgba(255, 255, 0, 0.2)"; // highlight result
+      setTimeout(() => li.style.background = "", 2000); // remove highlight
+      found = true;
+    }
+  });
+
+  if (!found) {
+    alert("No match found in the list!");
+  }
+}
+
+// allow Enter key to trigger search
+document.getElementById("searchInput").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    searchDemon();
+  }
+});
+</script>
+
+
 
