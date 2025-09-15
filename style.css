@@ -151,3 +151,33 @@ ul.clean li:last-child{border-bottom:none}
   z-index: 9999;
 }
 
+.backbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  padding: 6px 8px;
+  width: 220px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.search-bar button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-highlight {
+  background: rgba(255, 235, 59, 0.18); /* yellow highlight */
+  transition: background 0.25s ease;
+}
+
+
