@@ -82,5 +82,6 @@ document.getElementById("searchInput").addEventListener("keypress", function(eve
 });
 </script>
 
+// THIS JAVASCRIPT FILE IS HEAVILY SPONSORED BY CHATGPT BECAUSE I SUCK AT JS LOL
 
 
