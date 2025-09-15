@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function normalize(str) {
     return String(str || '')
       .toLowerCase()
-      .replace(/[\u200B-\u200D\uFEFF]/g, '') // zero-width chars
+      .replace(/[\u200B-\u200D\uFEFF]/g, '') // strip invisible chars
       .replace(/\s+/g, ' ')
       .trim();
   }
@@ -68,25 +68,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('.search-highlight')
       .forEach(el => el.classList.remove('search-highlight'));
 
-    let found = null;
-
-    // if digits only, try strict match at start
-    if (/^\d+$/.test(q)) {
-      found = items.find(li =>
-        normalize(li.innerText).startsWith(q)
-      );
-    }
-
-    // fallback: partial text match
-    if (!found) {
-      found = items.find(li =>
-        normalize(li.innerText).includes(q)
-      );
-    }
+    // find first item that includes the query (name search only)
+    const found = items.find(li =>
+      normalize(li.innerText).includes(q)
+    );
 
     if (found) {
-      // custom scroll instead of scrollIntoView
-      const yOffset = -100; // adjust depending on header height
+      // smooth scroll with offset so it's not hidden under top bar
+      const yOffset = -100; // tweak this depending on your header height
       const y = found.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
 
@@ -114,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initSearch();
   }
 })();
-
 
 // THIS JAVASCRIPT FILE IS HEAVILY SPONSORED BY CHATGPT BECAUSE I SUCK AT JS LOL
 
