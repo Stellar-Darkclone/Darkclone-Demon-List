@@ -91,16 +91,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById('searchBtn');
 
     if (form && input) {
-      // prevent refresh
+      // Kill form’s default action COMPLETELY
       form.addEventListener('submit', e => {
         e.preventDefault();
+        e.stopPropagation(); // stop bubbling
         doSearch(input.value);
+        return false; // extra safety to block reload
       });
 
       if (button) {
         button.addEventListener('click', e => {
-          e.preventDefault(); // stop form refresh
+          e.preventDefault();
+          e.stopPropagation();
           doSearch(input.value);
+          return false;
         });
       }
     }
