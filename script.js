@@ -51,42 +51,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // -------------------------------------------------------------------------------
 
-function searchDemon() {
-  const input = document.getElementById("searchInput").value.toLowerCase().trim();
-  if (!input) return;
+(function() {
+  function normalize(str) {
+    return String(str || '')
+      .toLowerCase()
+      .replace(/[\u200B-\u200D\uFEFF]/g, '') // zero-width chars
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
 
-  const items = document.querySelectorAll("ul.clean li");
-  let found = false;
+  function doSearch(query) {
+    if (!query) return;
+    const q = normalize(query);
 
-  items.forEach(li => {
-    const text = li.innerText.toLowerCase();
-    if (text.includes(input) && !found) {
-      li.scrollIntoView({ behavior: "smooth", block: "center" });
-      li.style.background = "rgba(255, 255, 0, 0.2)"; // highlight
-      setTimeout(() => li.style.background = "", 2000);
-      found = true;
+    const items = Array.from(document.querySelectorAll('ul.clean li'));
+    document.querySelectorAll('.search-highlight')
+      .forEach(el => el.classList.remove('search-highlight'));
+
+    let found = null;
+
+    // if digits only, try strict match at start
+    if (/^\d+$/.test(q)) {
+      found = items.find(li =>
+        normalize(li.innerText).startsWith(q)
+      );
     }
-  });
 
-  if (!found) {
-    alert("No match found in the list!");
+    // fallback: partial text match
+    if (!found) {
+      found = items.find(li =>
+        normalize(li.innerText).includes(q)
+      );
+    }
+
+    if (found) {
+      found.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      found.classList.add('search-highlight');
+      setTimeout(() => found.classList.remove('search-highlight'), 3000);
+    } else {
+      alert(`No match found for: "${query}"`);
+    }
   }
-}
 
-// Attach events once the page loads
-document.addEventListener("DOMContentLoaded", () => {
-  const input = document.getElementById("searchInput");
-  const button = document.getElementById("searchBtn");
-
-  if (input && button) {
-    button.addEventListener("click", searchDemon);
-    input.addEventListener("keypress", function(event) {
-      if (event.key === "Enter") {
-        searchDemon();
-      }
-    });
+  function initSearch() {
+    const form = document.getElementById('searchForm');
+    const input = document.getElementById('searchInput');
+    if (form && input) {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        doSearch(input.value);
+      });
+    }
   }
-});
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSearch);
+  } else {
+    initSearch();
+  }
+})();
+
 
 
 // THIS JAVASCRIPT FILE IS HEAVILY SPONSORED BY CHATGPT BECAUSE I SUCK AT JS LOL
