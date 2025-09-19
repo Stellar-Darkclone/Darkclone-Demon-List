@@ -1,0 +1,4 @@
+DEV LOGS:
+
+- Added Automatic counting system for extreme and insane demon
+- 
