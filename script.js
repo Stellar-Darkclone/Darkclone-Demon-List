@@ -117,4 +117,44 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })();
 
+// -------------------------------------------------------------------------------
+
+// Utility: fetch HTML and count <li> inside a section with ID="completed"
+async function getCompletedCount(page) {
+  try {
+    const response = await fetch(page);
+    const text = await response.text();
+
+    // Parse HTML text
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, "text/html");
+
+    // Adjust this selector to where your "Completed" <li> live
+    // Example: <ul id="completed"><li>...</li></ul>
+    const completedSection = doc.querySelector("#completed");
+
+    if (completedSection) {
+      return completedSection.querySelectorAll("li").length;
+    }
+    return 0;
+  } catch (err) {
+    console.error("Error loading " + page, err);
+    return 0;
+  }
+}
+
+// Update counters on index.html
+async function updateCounters() {
+  const extremeCount = await getCompletedCount("extreme.html");
+  const insaneCount = await getCompletedCount("insane.html");
+
+  document.getElementById("extreme-count").textContent =
+    `Completed extremes: ${extremeCount}`;
+  document.getElementById("insane-count").textContent =
+    `Completed insanes: ${insaneCount}`;
+}
+
+// Run after page loads
+document.addEventListener("DOMContentLoaded", updateCounters);
+
 // THIS JAVASCRIPT FILE IS HEAVILY SPONSORED BY CHATGPT BECAUSE I SUCK AT JS LOL
