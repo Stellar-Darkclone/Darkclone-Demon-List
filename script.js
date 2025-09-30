@@ -157,4 +157,53 @@ async function updateCounters() {
 // Run after page loads
 document.addEventListener("DOMContentLoaded", updateCounters);
 
+// -------------------------------------------------------------------------------
+
+(function(){
+  try {
+    // Read optional meta tag: <meta name="live-reload-files" content="index.html,about.html">
+    const meta = document.querySelector('meta[name="live-reload-files"]');
+    const files = meta ? meta.content.split(',').map(s => s.trim()).filter(Boolean) :
+      [ (location.pathname.replace(/^\//,'') || 'index.html') ];
+
+    const cache = {};
+
+    // initialize cache
+    files.forEach(f => {
+      fetch(f, { cache: 'no-store' })
+        .then(r => r.text())
+        .then(t => cache[f] = t)
+        .catch(() => cache[f] = null);
+    });
+
+    async function poll(){
+      for (const f of files) {
+        try {
+          const res = await fetch(f, { cache: 'no-store' });
+          if (!res.ok) continue;
+          const t = await res.text();
+          if (cache[f] !== undefined && cache[f] !== t) {
+            console.log('LiveReload: change detected in', f);
+            setTimeout(() => location.reload(true), 80); // small delay before reload
+            return;
+          }
+          cache[f] = t;
+        } catch (err) {
+          // ignore fetch errors (file may be temporarily unavailable)
+        }
+      }
+    }
+
+    // Poll every 1000ms (1s). You can increase to reduce network load.
+    setInterval(poll, 1000);
+
+    // Extra: check immediately when page becomes visible again
+    document.addEventListener('visibilitychange', function(){
+      if (!document.hidden) poll();
+    });
+  } catch (e) {
+    console.warn('LiveReload script error', e);
+  }
+})();
+
 // THIS JAVASCRIPT FILE IS HEAVILY SPONSORED BY CHATGPT BECAUSE I SUCK AT JS LOL
