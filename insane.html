@@ -64,5 +64,47 @@
 
   </div>
   <script src="script.js"></script>
+
+<!-- LiveReload: injected by ChatGPT — polls specified HTML files and reloads when content changes -->
+<script>
+(function(){
+  // Read optional meta tag: <meta name="live-reload-files" content="index.html,about.html">
+  try {
+    const meta = document.querySelector('meta[name="live-reload-files"]');
+    const files = meta ? meta.content.split(',').map(s=>s.trim()).filter(Boolean) :
+      [ (location.pathname.replace(/^\//,'') || 'index.html') ];
+    const cache = {};
+    // initialize cache
+    files.forEach(f => {
+      fetch(f, {cache: 'no-store'}).then(r => r.text()).then(t => cache[f] = t).catch(() => cache[f] = null);
+    });
+    async function poll(){
+      for(const f of files){
+        try{
+          const res = await fetch(f, {cache: 'no-store'});
+          if(!res.ok) continue;
+          const t = await res.text();
+          if(cache[f] !== undefined && cache[f] !== t){
+            console.log('LiveReload: change detected in', f);
+            // Give a tiny delay to allow file writes to settle
+            setTimeout(()=> location.reload(true), 80);
+            return;
+          }
+          cache[f] = t;
+        }catch(err){
+          // ignore fetch errors (file may be temporarily unavailable)
+        }
+      }
+    }
+    // Poll every 1000ms (1s). You can increase to 2000 or 5000 for less network load.
+    setInterval(poll, 1000);
+    // Also listen for visibility change: when page becomes visible, check immediately
+    document.addEventListener('visibilitychange', function(){ if(!document.hidden) poll(); });
+  } catch(e) {
+    console.warn('LiveReload script error', e);
+  }
+})();
+</script>
+<!-- End LiveReload -->
 </body>
 </html>
