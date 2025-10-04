@@ -206,8 +206,8 @@ ul.clean li:last-child{border-bottom:none}
 /* For the Website Log Update */
 
 .update-log {
-  max-height: 200px;   /* or whatever height you like */
-  overflow-y: auto;
+  max-height: 100px;   /* or whatever height you like */
+  overflow-y: scroll;
   padding: 10px 14px;  /* 🔥 space inside the box */
   border: 1px solid #444;
   border-radius: 8px;
@@ -219,11 +219,11 @@ ul.clean li:last-child{border-bottom:none}
   padding-left: 18px;  /* indent bullet points a bit */
 }
 
-.update-log::-webkit-scrollbar {
-  width: 8px;
+.update-log {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
 }
 
 .update-log::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 4px;
+  background: #888;
 }
