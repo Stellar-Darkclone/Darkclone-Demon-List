@@ -206,11 +206,17 @@ ul.clean li:last-child{border-bottom:none}
 /* For the Website Log Update */
 
 .update-log {
-  max-height: 200px;   /* adjust height as you like */
+  max-height: 200px;   /* or whatever height you like */
   overflow-y: auto;
-  padding-right: 10px; /* prevents text from hiding under scrollbar */
+  padding: 10px 14px;  /* 🔥 space inside the box */
   border: 1px solid #444;
   border-radius: 8px;
+  box-sizing: border-box; /* makes padding not break layout */
+}
+
+.update-log ul {
+  margin: 0;
+  padding-left: 18px;  /* indent bullet points a bit */
 }
 
 .update-log::-webkit-scrollbar {
