@@ -176,6 +176,8 @@ ul.clean li:last-child{border-bottom:none}
 }
 
 .search-highlight {
+  background: #FFFF00;
+}
 
 /* For Website Logs */
   
@@ -184,7 +186,5 @@ ul.clean li:last-child{border-bottom:none}
   overflow-y: scroll;    /* scrollbar shows only when overflowing */
   display: block;
   padding-right: 8px;  /* so text doesn’t touch scrollbar */
-
-  background: red; /* just for testing visibility */
 }
 
