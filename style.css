@@ -176,15 +176,50 @@ ul.clean li:last-child{border-bottom:none}
 }
 
 .search-highlight {
-  background: #FFFF00;
+
+/* For new implemented button 10/4/2025 */
+
+  .list-item {
+  position: relative;
+  margin-bottom: 8px;
 }
 
-/* For Website Logs */
-  
-.website-logs {
-  max-height: 50px;   /* adjust so ~4 items fit without scrolling */
-  overflow-y: scroll;    /* scrollbar shows only when overflowing */
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+.extra-info {
+  margin-left: 20px;
+  font-style: italic;
+  display: none;
+}
+
+.extra-info.show {
   display: block;
-  padding-right: 8px;  /* so text doesn’t touch scrollbar */
+}
+  background: rgba(255, 235, 59, 0.18); /* yellow highlight */
+  transition: background 0.25s ease;
 }
 
+/* For the Website Log Update */
+
+.update-log {
+  max-height: 200px;   /* adjust height as you like */
+  overflow-y: auto;
+  padding-right: 10px; /* prevents text from hiding under scrollbar */
+  border: 1px solid #444;
+  border-radius: 8px;
+}
+
+.update-log::-webkit-scrollbar {
+  width: 8px;
+}
+
+.update-log::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
