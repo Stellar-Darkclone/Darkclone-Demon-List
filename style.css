@@ -176,3 +176,14 @@ ul.clean li:last-child{border-bottom:none}
 }
 
 .search-highlight {
+
+/* For Website Logs */
+  
+.logs-container {
+  max-height: 200px; /* adjust height as you like */
+  overflow-y: auto; 
+  padding-right: 10px; /* so scrollbar doesn’t overlap text */
+  border: 1px solid #444; /* optional, just to make it neat */
+  border-radius: 8px;
+}
+
