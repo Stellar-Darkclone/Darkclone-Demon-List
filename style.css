@@ -207,7 +207,7 @@ ul.clean li:last-child{border-bottom:none}
 
 .update-log {
   max-height: 200px;         /* fixed height area */
-  overflow-y: auto;          /* scroll if needed */
+  overflow-y: scroll;          /* scroll if needed */
   padding: 10px 14px;
   border: 1px solid #444;
   border-radius: 8px;
