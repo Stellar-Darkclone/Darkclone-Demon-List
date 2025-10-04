@@ -20,16 +20,17 @@
 
     <h1>Insane Demon List</h1>
     <p class="lead">() - Indicates Progress. [] - Indicates Runs.</p>
+    <p class="lead">Ranking referenced to: <a href="https://insanedemonlist.com/">The Insane Demon List</a></p> 
 
     <div class="panel section">
       <h2>🌷 Completed</h2>
       <ul id="completed" class="clean">
-        <li>Shoebill — 1,536 attempts | Last Death: 96% | Completed: June 2, 2023 (120hz PC) — <a href="https://youtu.be/ITSFT4HIcRs?si=cCYFH8yi5GVd8laU" target="_blank" rel="noopener">Video</a></li>
-        <li>Footnotes — 1,311 attempts | Last Death: 92% | Completed: June 30, 2023 (120hz PC) — <a href="https://youtu.be/0tm5XpFwxTM?si=m6EcSoyKRN59QDoy" target="_blank" rel="noopener">Video</a></li>
-        <li>Acropolis — 4,006 attempts | Last Death: 68% | Completed: July 22, 2023 (120hz PC) — <a href="https://youtu.be/S_TGJHl8vCo?si=H70XwBY-75Qs3XiE" target="_blank" rel="noopener">Video</a></li>
-        <li>My Song — 11,679 attempts | Last Death: 67% | Completed: August 9, 2025 (240hz PC) — <a href="https://youtu.be/1JtvTR9Ss34?si=_vuWl9yRB8K1bOeE" target="_blank" rel="noopener">Video</a></li>
-        <li>Crossroads — 405 attempts | Last Death: 98% | Completed: September 2, 2025 (240hz PC) — <a href="https://youtu.be/BWSMGaW0O-g?si=V3zMzbcjaZsIY9PB" target="_blank" rel="noopener">Video</a></li>
-        <li>My Time — 1,706 attempts | Last Death: 94% | Completed: September 23, 2025 (240FPS PC) — <a href="https://youtu.be/LdBOnmnLa7U?si=6mM538THlolxwpgM" target="_blank" rel="noopener">Video</a></li>
+        <li>[239] ??? - Shoebill — 1,536 attempts | Last Death: 96% | Completed: June 2, 2023 (120hz PC) — <a href="https://youtu.be/ITSFT4HIcRs?si=cCYFH8yi5GVd8laU" target="_blank" rel="noopener">Video</a></li>
+        <li>[???] ??? - Footnotes — 1,311 attempts | Last Death: 92% | Completed: June 30, 2023 (120hz PC) — <a href="https://youtu.be/0tm5XpFwxTM?si=m6EcSoyKRN59QDoy" target="_blank" rel="noopener">Video</a></li>
+        <li>[???] ??? - Acropolis — 4,006 attempts | Last Death: 68% | Completed: July 22, 2023 (120hz PC) — <a href="https://youtu.be/S_TGJHl8vCo?si=H70XwBY-75Qs3XiE" target="_blank" rel="noopener">Video</a></li>
+        <li>[295] ??? - My Song — 11,679 attempts | Last Death: 67% | Completed: August 9, 2025 (240hz PC) — <a href="https://youtu.be/1JtvTR9Ss34?si=_vuWl9yRB8K1bOeE" target="_blank" rel="noopener">Video</a></li>
+        <li>[???] ??? - Crossroads — 405 attempts | Last Death: 98% | Completed: September 2, 2025 (240hz PC) — <a href="https://youtu.be/BWSMGaW0O-g?si=V3zMzbcjaZsIY9PB" target="_blank" rel="noopener">Video</a></li>
+        <li>[???] ??? - My Time — 1,706 attempts | Last Death: 94% | Completed: September 23, 2025 (240FPS PC) — <a href="https://youtu.be/LdBOnmnLa7U?si=6mM538THlolxwpgM" target="_blank" rel="noopener">Video</a></li>
       </ul>
     </div>
 
@@ -43,68 +44,26 @@
     <div class="panel section">
       <h2>🧩 FOCUS</h2>
       <ul class="clean">
-        <li>FuryDynamix</li>
-        <li>Free Level (40%)</li>
-        <li>Blast Insanity</li>
+        <li>??? - FuryDynamix</li>
+        <li>??? - Free Level (40%)</li>
+        <li>??? - Blast Insanity</li>
       </ul>
     </div>
 
     <div class="panel section">
       <h2>👾 On Wishlist</h2>
       <ul class="clean">
-        <li>FFFFFF (M-59%)</li>
-        <li>MikuMikuMikuMiku (M-37%) [59%-86%][78%-90%][87%-100%]</li>
-        <li>Ice Carbon Diablo X</li>
-        <li>Leyak</li>
-        <li>Spectral Edge</li>
-        <li>Windy Landscape</li>
-        <li>Dual Knight</li>
+        <li>??? - FFFFFF (M-59%)</li>
+        <li>??? - MikuMikuMikuMiku (M-37%) [59%-86%][78%-90%][87%-100%]</li>
+        <li>135 - Ice Carbon Diablo X</li>
+        <li>231 - Leyak</li>
+        <li>??? - Spectral Edge</li>
+        <li>??? - Windy Landscape</li>
+        <li>??? - Dual Knight</li>
       </ul>
     </div>
 
   </div>
   <script src="script.js"></script>
-
-<!-- LiveReload: injected by ChatGPT — polls specified HTML files and reloads when content changes -->
-<script>
-(function(){
-  // Read optional meta tag: <meta name="live-reload-files" content="index.html,about.html">
-  try {
-    const meta = document.querySelector('meta[name="live-reload-files"]');
-    const files = meta ? meta.content.split(',').map(s=>s.trim()).filter(Boolean) :
-      [ (location.pathname.replace(/^\//,'') || 'index.html') ];
-    const cache = {};
-    // initialize cache
-    files.forEach(f => {
-      fetch(f, {cache: 'no-store'}).then(r => r.text()).then(t => cache[f] = t).catch(() => cache[f] = null);
-    });
-    async function poll(){
-      for(const f of files){
-        try{
-          const res = await fetch(f, {cache: 'no-store'});
-          if(!res.ok) continue;
-          const t = await res.text();
-          if(cache[f] !== undefined && cache[f] !== t){
-            console.log('LiveReload: change detected in', f);
-            // Give a tiny delay to allow file writes to settle
-            setTimeout(()=> location.reload(true), 80);
-            return;
-          }
-          cache[f] = t;
-        }catch(err){
-          // ignore fetch errors (file may be temporarily unavailable)
-        }
-      }
-    }
-    // Poll every 1000ms (1s). You can increase to 2000 or 5000 for less network load.
-    setInterval(poll, 1000);
-    // Also listen for visibility change: when page becomes visible, check immediately
-    document.addEventListener('visibilitychange', function(){ if(!document.hidden) poll(); });
-  } catch(e) {
-    console.warn('LiveReload script error', e);
-  }
-})();
-</script>
-<!-- End LiveReload -->
 </body>
 </html>
