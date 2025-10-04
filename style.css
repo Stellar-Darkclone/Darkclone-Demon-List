@@ -181,8 +181,10 @@ ul.clean li:last-child{border-bottom:none}
   
 .website-logs {
   max-height: 50px;   /* adjust so ~4 items fit without scrolling */
-  overflow-y: auto;    /* scrollbar shows only when overflowing */
+  overflow-y: scroll;    /* scrollbar shows only when overflowing */
   display: block;
   padding-right: 8px;  /* so text doesn’t touch scrollbar */
+
+  background: red; /* just for testing visibility */
 }
 
