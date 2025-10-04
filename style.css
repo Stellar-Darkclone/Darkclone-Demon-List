@@ -180,12 +180,9 @@ ul.clean li:last-child{border-bottom:none}
 /* For Website Logs */
   
 .website-logs {
-  max-height: 150px;   /* adjust how tall you want the log box */
-  overflow-y: auto;    /* makes just this one scroll */
+  max-height: 50px;   /* adjust so ~4 items fit without scrolling */
+  overflow-y: auto;    /* scrollbar shows only when overflowing */
   display: block;
-  padding-right: 10px;
-  border: 1px solid #444;  /* optional, just to make the box clear */
-  border-radius: 6px;
+  padding-right: 8px;  /* so text doesn’t touch scrollbar */
 }
-
 
