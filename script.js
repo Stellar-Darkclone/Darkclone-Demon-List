@@ -206,4 +206,17 @@ document.addEventListener("DOMContentLoaded", updateCounters);
   }
 })();
 
+// -------------------------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".toggle-btn");
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const extra = btn.nextElementSibling;
+      extra.classList.toggle("show");
+      btn.textContent = extra.classList.contains("show") ? "▲" : "▼";
+    });
+  });
+});
+
 // THIS JAVASCRIPT FILE IS HEAVILY SPONSORED BY CHATGPT BECAUSE I SUCK AT JS LOL
