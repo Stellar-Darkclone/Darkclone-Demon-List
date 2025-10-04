@@ -195,15 +195,13 @@ ul.clean li:last-child{border-bottom:none}
 .extra-info {
   margin-left: 20px;
   font-style: italic;
-  display: none;
+  display: none;   /* 🔥 hides it by default */
 }
 
 .extra-info.show {
   display: block;
 }
-  background: rgba(255, 235, 59, 0.18); /* yellow highlight */
-  transition: background 0.25s ease;
-}
+
 
 /* For the Website Log Update */
 
