@@ -176,6 +176,31 @@ ul.clean li:last-child{border-bottom:none}
 }
 
 .search-highlight {
+
+/* For new implemented button 10/4/2025 */
+
+  .list-item {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+.extra-info {
+  margin-left: 20px;
+  font-style: italic;
+  display: none;
+}
+
+.extra-info.show {
+  display: block;
+}
   background: rgba(255, 235, 59, 0.18); /* yellow highlight */
   transition: background 0.25s ease;
 }
