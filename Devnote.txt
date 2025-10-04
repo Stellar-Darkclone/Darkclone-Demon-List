@@ -1,6 +1,6 @@
 DEV LOGS:
 
-- Added Automatic counting system for extreme and insane demon
+- Added Automatic counting system for extreme and insane demon (lazy or just being smart?)
 - Added scrolling for Web Logs to not fill up the webpage (because it's annoying lol)
 -
 -
