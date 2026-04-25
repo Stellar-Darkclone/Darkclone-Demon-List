@@ -17,13 +17,7 @@ html, body {
 
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
-  background: linear-gradient(135deg, 
-    #0c0f1f 0%, 
-    #1a1433 30%, 
-    #2a1f5c 55%, 
-    #3b2a7f 75%, 
-    #4c1d95 90%, 
-    #6b21a8 100%);
+  background: linear-gradient(135deg, #0c0f1f 0%, #1a1433 30%, #2a1f5c 55%, #3b2a7f 75%, #4c1d95 90%, #6b21a8 100%);
   background-attachment: fixed;
   color: var(--text);
   line-height: 1.65;
@@ -37,7 +31,7 @@ body {
   padding: 0 24px;
 }
 
-/* Navigation - full width */
+/* ==================== MAIN NAV (Index) ==================== */
 .nav {
   width: 100%;
   background: rgba(8, 10, 20, 0.98);
@@ -106,13 +100,83 @@ body {
   cursor: pointer; 
 }
 
-/* Hero - Better spacing like your screenshot */
+/* ==================== LIST PAGE HEADER (Extreme & Insane) ==================== */
+.list-header {
+  background: rgba(8, 10, 20, 0.98);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--panel-border);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin-bottom: 40px;
+}
+
+.list-header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.list-header .nav-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.list-header .button {
+  padding: 10px 18px;
+  font-size: 0.95rem;
+}
+
+.list-header .button.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Search in header */
+.list-header .search-bar {
+  display: flex;
+  gap: 8px;
+  max-width: 380px;
+  width: 100%;
+}
+
+.list-header .search-bar input {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 9999px;
+  border: 1px solid var(--panel-border);
+  background: rgba(0,0,0,0.45);
+  color: var(--text);
+}
+
+.list-header .search-bar button {
+  padding: 0 24px;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.list-header .search-bar button:hover {
+  background: #9333ea;
+}
+
+/* ==================== HERO & GRID ==================== */
 .hero {
   display: grid;
   grid-template-columns: 1.35fr 1fr;
   gap: 60px;
   margin: 80px 0 100px;
-  padding: 0 20px;           /* added breathing room */
+  padding: 0 20px;
 }
 
 .hero-content h1 {
@@ -127,11 +191,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.lead {
-  color: var(--muted);
-  font-size: clamp(1.15rem, 2.4vw, 1.38rem);
-  max-width: 48ch;
-}
+.lead { color: var(--muted); font-size: clamp(1.15rem, 2.4vw, 1.38rem); max-width: 48ch; }
 
 .stats {
   display: flex;
@@ -167,13 +227,12 @@ body {
   backdrop-filter: blur(16px);
 }
 
-/* Grid Cards - More breathing room */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 28px;
   margin-bottom: 80px;
-  padding: 0 20px;           /* prevents cards from touching edges */
+  padding: 0 20px;
 }
 
 .card {
@@ -208,17 +267,10 @@ body {
 .tag.extreme { color: #f43f5e; border-color: #f43f5e; }
 .tag.insane  { color: #eab308; border-color: #eab308; }
 
-.card h3 {
-  margin-bottom: 12px;
-  font-size: 1.45rem;
-}
+.card h3 { margin-bottom: 12px; font-size: 1.45rem; }
+.card p { color: var(--muted); flex-grow: 1; }
 
-.card p {
-  color: var(--muted);
-  flex-grow: 1;
-}
-
-/* Panels */
+/* Panels & Lists */
 .panel {
   background: var(--panel);
   border: 1px solid var(--panel-border);
@@ -234,23 +286,6 @@ body {
   font-size: 1.7rem;
 }
 
-/* Update Logs */
-.update-log {
-  max-height: 280px;
-  overflow-y: auto;
-  padding-right: 10px;
-}
-
-.update-log::-webkit-scrollbar {
-  width: 6px;
-}
-
-.update-log::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 10px;
-}
-
-/* Lists */
 .clean {
   list-style: none;
 }
@@ -268,43 +303,19 @@ body {
   padding-left: 12px;
 }
 
-/* Backbar + Search */
-.backbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 36px;
-  flex-wrap: wrap;
-  gap: 16px;
+.update-log {
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
-.search-bar {
-  display: flex;
-  gap: 12px;
-  max-width: 480px;
-  width: 100%;
+.update-log::-webkit-scrollbar {
+  width: 6px;
 }
 
-.search-bar input {
-  flex: 1;
-  padding: 15px 22px;
-  border-radius: 9999px;
-  border: 1px solid var(--panel-border);
-  background: rgba(0,0,0,0.45);
-  color: var(--text);
-}
-
-.search-bar button {
-  padding: 0 30px;
-  border-radius: 9999px;
+.update-log::-webkit-scrollbar-thumb {
   background: var(--accent);
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.search-bar button:hover {
-  background: #9333ea;
+  border-radius: 10px;
 }
 
 footer {
@@ -319,12 +330,26 @@ footer {
   margin-top: 20px;
 }
 
+/* Search Highlight */
+.search-highlight {
+  background: rgba(250, 204, 21, 0.25) !important;
+  border: 2px solid #fcd34d !important;
+  border-radius: 12px;
+  animation: highlightPulse 3s ease forwards;
+}
+
+@keyframes highlightPulse {
+  0% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7); }
+  70% { box-shadow: 0 0 0 25px rgba(250, 204, 21, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); }
+}
+
 /* Responsive */
 @media (max-width: 920px) {
   .hero, .grid { padding: 0 16px; }
   .hamburger { display: block; }
   
-  .nav-links {
+  .nav-links, .list-header .nav-group {
     position: fixed;
     top: 80px;
     left: -100%;
@@ -337,37 +362,9 @@ footer {
     transition: left 0.4s ease;
     z-index: 99;
   }
-  .nav-links.active { left: 0; }
+  .nav-links.active, .list-header .nav-group.active { left: 0; }
 }
 
 @media (max-width: 600px) {
   .container { padding: 0 16px; }
-}
-
-/* Fix for index hero and grid spacing */
-.hero {
-  padding: 0 20px;
-}
-
-.grid {
-  padding: 0 20px;
-}
-
-/* Make sure list-header has proper spacing on extreme/insane */
-.list-header {
-  margin-bottom: 40px;
-}
-
-/* Search highlight animation */
-.search-highlight {
-  background: rgba(250, 204, 21, 0.25) !important;
-  border: 2px solid #fcd34d !important;
-  border-radius: 12px;
-  animation: highlightPulse 3s ease forwards;
-}
-
-@keyframes highlightPulse {
-  0% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7); }
-  70% { box-shadow: 0 0 0 25px rgba(250, 204, 21, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); }
 }
