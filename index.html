@@ -1,95 +1,345 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Darkclone’s Demon Lists</title>
-  <link rel="stylesheet" href="style.css"/>
-  <meta name="color-scheme" content="dark light">
-  <meta name="description" content="Darkclone's official Geometry Dash demon lists - Extreme, Insane, progress, wishlist and hardest completions.">
-</head>
-<body>
+:root {
+  --accent: #a855f7;
+  --accent-2: #22d3ee;
+  --glow: 0 0 40px rgba(168, 85, 247, 0.45);
+  --panel: rgba(15, 23, 42, 0.92);
+  --panel-border: rgba(255, 255, 255, 0.12);
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+}
 
-  <div id="landscape-warning">
-    <p>⚠️ Best experience on landscape mode (mobile) ⚠️</p>
-  </div>
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <nav class="nav">
-    <div class="inner">
-      <a class="brand" href="index.html">
-        <img src="logo.png" alt="Darkclone Logo" class="logo-img">
-        <span>Darkclone</span>
-      </a>
+html, body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
 
-      <div class="nav-links" id="nav-links">
-        <a class="button" href="https://www.youtube.com/@darkclonexd/featured" target="_blank" rel="noopener">YouTube</a>
-        <a class="button" href="https://docs.google.com/document/d/1Jw5motoaxZjOF2HAp14apUqmkxXeureWHTasxbL2W9M/edit?usp=sharing" target="_blank" rel="noopener">Original List</a>
-        <a class="button" href="https://gdbrowser.com/u/Darkclone" target="_blank" rel="noopener">GD Account</a>
-      </div>
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
+  background: linear-gradient(135deg, 
+    #0c0f1f 0%, 
+    #1a1433 30%, 
+    #2a1f5c 55%, 
+    #3b2a7f 75%, 
+    #4c1d95 90%, 
+    #6b21a8 100%);
+  background-attachment: fixed;
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
 
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
-    </div>
-  </nav>
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to <span class="accent">Darkclone</span>’s Demon Lists</h1>
-      <p class="lead">Official hub for my Geometry Dash Extreme & Insane demon completions, progress, and wishlist.</p>
-      
-      <div class="stats">
-        <span id="extreme-count">Completed extremes: 7</span>
-        <span id="insane-count">Completed insanes: 8</span>
-      </div>
-      
-      <div class="update-tag">Last Update: April 26, 2026</div>
-    </div>
+/* Navigation - full width */
+.nav {
+  width: 100%;
+  background: rgba(8, 10, 20, 0.98);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--panel-border);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-    <div class="hero-panel">
-      <h3>Latest Demon Completion</h3>
-      <iframe width="100%" height="230" src="https://www.youtube.com/embed/yLmoj2gUElg" title="Latest Completion" frameborder="0" allowfullscreen></iframe>
+.nav .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-      <h3 style="margin-top: 28px;">Reference: AREDL Demon List</h3>
-      <iframe src="https://aredl.net/list/119544028?list=classic" width="100%" height="230" style="border:1px solid rgba(255,255,255,0.12); border-radius:16px;" title="AREDL Rankings"></iframe>
-    </div>
-  </section>
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.55rem;
+}
 
-  <section class="grid">
-    <a class="card" href="topList.html">
-      <span class="tag">Ranking</span>
-      <h3>Top 10 Hardest Completions</h3>
-      <p>My personal hardest demons ranked (with Memory rankings)</p>
-    </a>
+.logo-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  box-shadow: var(--glow);
+}
 
-    <a class="card" href="extreme.html">
-      <span class="tag extreme">Extreme</span>
-      <h3>Extreme Demon List</h3>
-      <p>Completed extremes, current progress, challenger list & wishlist</p>
-    </a>
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
 
-    <a class="card" href="insane.html">
-      <span class="tag insane">Insane</span>
-      <h3>Insane Demon List</h3>
-      <p>Completed insanes, progress and wishlist</p>
-    </a>
-  </section>
+.button {
+  padding: 10px 22px;
+  border-radius: 9999px;
+  border: 1px solid var(--panel-border);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
 
-  <div class="panel">
-    <h2>✅ Website Update Logs</h2>
-    <div class="update-log">
-      <ul class="clean">
-        <li>Raw Footage Links added to completions <i>(January 29, 2026)</i></li>
-        <li>Insane Demon list now has rankings <i>(October 4, 2025)</i></li>
-        <li>Switched to AREDL as main reference <i>(October 4, 2025)</i></li>
-        <li>Major visual & mobile upgrade <i>(April 2026)</i></li>
-      </ul>
-    </div>
-  </div>
+.button:hover {
+  border-color: var(--accent);
+  background: rgba(168, 85, 247, 0.2);
+  box-shadow: var(--glow);
+}
 
-  <footer>
-    <p><small>Website created by Darkclone • September 01, 2025</small></p>
-    <p id="secret-text">Feeling Lucky?</p>
-  </footer>
+.hamburger { 
+  display: none; 
+  background: none; 
+  border: none; 
+  font-size: 2rem; 
+  color: var(--text); 
+  cursor: pointer; 
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+/* Hero - Better spacing like your screenshot */
+.hero {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 60px;
+  margin: 80px 0 100px;
+  padding: 0 20px;           /* added breathing room */
+}
+
+.hero-content h1 {
+  font-size: clamp(2.7rem, 6.5vw, 4.6rem);
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+
+.accent {
+  background: linear-gradient(90deg, #c084fc, #d946ef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: clamp(1.15rem, 2.4vw, 1.38rem);
+  max-width: 48ch;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 32px 0 40px;
+}
+
+.stats span {
+  background: rgba(30, 35, 60, 0.95);
+  border: 1px solid var(--panel-border);
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.update-tag {
+  display: inline-block;
+  padding: 9px 22px;
+  background: rgba(168, 85, 247, 0.18);
+  color: var(--accent);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: 9999px;
+  font-size: 0.98rem;
+}
+
+.hero-panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  padding: 28px;
+  backdrop-filter: blur(16px);
+}
+
+/* Grid Cards - More breathing room */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 28px;
+  margin-bottom: 80px;
+  padding: 0 20px;           /* prevents cards from touching edges */
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  padding: 32px 28px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  box-shadow: var(--glow);
+}
+
+.card .tag {
+  display: inline-block;
+  font-size: 0.87rem;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: 1px dashed var(--panel-border);
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.tag.extreme { color: #f43f5e; border-color: #f43f5e; }
+.tag.insane  { color: #eab308; border-color: #eab308; }
+
+.card h3 {
+  margin-bottom: 12px;
+  font-size: 1.45rem;
+}
+
+.card p {
+  color: var(--muted);
+  flex-grow: 1;
+}
+
+/* Panels */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  padding: 34px;
+  margin-bottom: 44px;
+  backdrop-filter: blur(12px);
+}
+
+.panel h2 {
+  margin-bottom: 28px;
+  color: var(--accent);
+  font-size: 1.7rem;
+}
+
+/* Update Logs */
+.update-log {
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.update-log::-webkit-scrollbar {
+  width: 6px;
+}
+
+.update-log::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+/* Lists */
+.clean {
+  list-style: none;
+}
+
+.clean li {
+  padding: 16px 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.1);
+}
+
+.clean li:last-child { border-bottom: none; }
+
+.clean li:hover {
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  padding-left: 12px;
+}
+
+/* Backbar + Search */
+.backbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 12px;
+  max-width: 480px;
+  width: 100%;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 15px 22px;
+  border-radius: 9999px;
+  border: 1px solid var(--panel-border);
+  background: rgba(0,0,0,0.45);
+  color: var(--text);
+}
+
+.search-bar button {
+  padding: 0 30px;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background: #9333ea;
+}
+
+footer {
+  text-align: center;
+  padding: 90px 0 60px;
+  color: var(--muted);
+}
+
+#secret-text {
+  cursor: pointer;
+  color: var(--accent);
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 920px) {
+  .hero, .grid { padding: 0 16px; }
+  .hamburger { display: block; }
+  
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: rgba(8,10,20,0.98);
+    flex-direction: column;
+    padding: 50px 30px;
+    gap: 24px;
+    transition: left 0.4s ease;
+    z-index: 99;
+  }
+  .nav-links.active { left: 0; }
+}
+
+@media (max-width: 600px) {
+  .container { padding: 0 16px; }
+}
