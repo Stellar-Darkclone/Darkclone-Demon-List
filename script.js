@@ -206,13 +206,16 @@ document.addEventListener("DOMContentLoaded", updateCounters);
   }
 })();
 
-// Mobile Hamburger Menu
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
-if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-}
+// ==================== MOBILE HAMBURGER MENU ====================
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+});
 
 // THIS JAVASCRIPT FILE IS HEAVILY SPONSORED BY CHATGPT BECAUSE I SUCK AT JS LOL
