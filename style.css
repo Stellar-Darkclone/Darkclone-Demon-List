@@ -97,7 +97,14 @@ body {
   box-shadow: var(--glow);
 }
 
-.hamburger { display: none; background: none; border: none; font-size: 2rem; color: var(--text); cursor: pointer; }
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text);
+  cursor: pointer;
+}
 
 /* Hero */
 .hero {
@@ -159,7 +166,7 @@ body {
   backdrop-filter: blur(16px);
 }
 
-/* Grid Cards - FIXED */
+/* Grid Cards */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -209,7 +216,7 @@ body {
   flex-grow: 1;
 }
 
-/* Panels & Lists */
+/* Panels */
 .panel {
   background: var(--panel);
   border: 1px solid var(--panel-border);
@@ -225,6 +232,23 @@ body {
   font-size: 1.7rem;
 }
 
+/* Update Log */
+.update-log {
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.update-log::-webkit-scrollbar {
+  width: 6px;
+}
+
+.update-log::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+/* Lists */
 .clean {
   list-style: none;
 }
@@ -242,6 +266,7 @@ body {
   padding-left: 12px;
 }
 
+/* Backbar + Search */
 .backbar {
   display: flex;
   justify-content: space-between;
@@ -274,6 +299,12 @@ body {
   color: white;
   border: none;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+.search-bar button:hover {
+  background: #9333ea;
+  transform: scale(1.05);
 }
 
 footer {
