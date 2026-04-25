@@ -1,208 +1,115 @@
 // ================================================
-// Geometry Dash Demon Lists - Script.js
+// Darkclone Demon Lists - Clean Script
 // ================================================
-
-// Basic search filter (kept for compatibility)
-function filterList(inputId, listId) {
-  const q = document.getElementById(inputId).value.toLowerCase();
-  const items = document.querySelectorAll(`#${listId} li`);
-  items.forEach(li => {
-    const txt = li.textContent.toLowerCase();
-    li.style.display = txt.includes(q) ? "" : "none";
-  });
-}
 
 // Orientation warning
 function checkOrientation() {
   const warning = document.getElementById("landscape-warning");
   if (warning) {
-    if (window.innerHeight > window.innerWidth) {
-      warning.style.display = "block";
-    } else {
-      warning.style.display = "none";
-    }
+    warning.style.display = (window.innerHeight > window.innerWidth) ? "block" : "none";
   }
 }
-
 window.addEventListener("load", checkOrientation);
 window.addEventListener("resize", checkOrientation);
 window.addEventListener("orientationchange", checkOrientation);
 
 // Secret rickroll (3 taps)
+let tapCount = 0;
+let tapTimer;
 document.addEventListener("DOMContentLoaded", () => {
-  let tapCount = 0;
-  let tapTimer;
-
   const secretText = document.getElementById("secret-text");
   if (secretText) {
     secretText.addEventListener("click", () => {
       tapCount++;
-
       if (tapCount === 3) {
         window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
         tapCount = 0;
-        clearTimeout(tapTimer);
         return;
       }
-
       clearTimeout(tapTimer);
-      tapTimer = setTimeout(() => {
-        tapCount = 0;
-      }, 1200);
+      tapTimer = setTimeout(() => tapCount = 0, 1200);
     });
   }
 });
 
 // ================================================
-// IMPROVED SEARCH WITH HIGHLIGHT + SMOOTH SCROLL
+// IMPROVED SEARCH WITH 3-SECOND HIGHLIGHT
 // ================================================
-(function() {
-  function normalize(str) {
-    return String(str || '')
-      .toLowerCase()
-      .replace(/[\u200B-\u200D\uFEFF]/g, '')
-      .replace(/\s+/g, ' ')
-      .trim();
-  }
+function doSearch(query) {
+  if (!query) return;
+  const q = query.toLowerCase().trim();
 
-  function doSearch(query) {
-    if (!query) return;
+  const items = Array.from(document.querySelectorAll('ul.clean li'));
+  document.querySelectorAll('.search-highlight').forEach(el => el.classList.remove('search-highlight'));
 
-    const q = normalize(query);
-    const items = Array.from(document.querySelectorAll('ul.clean li'));
+  const found = items.find(li => li.textContent.toLowerCase().includes(q));
 
-    // Remove previous highlights
-    document.querySelectorAll('.search-highlight').forEach(el => {
-      el.classList.remove('search-highlight');
-    });
+  if (found) {
+    const yOffset = -140;
+    const y = found.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
 
-    const found = items.find(li => normalize(li.innerText).includes(q));
-
-    if (found) {
-      // Smooth scroll with offset
-      const yOffset = -140; // space for sticky header
-      const y = found.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-
-      // Highlight for 3 seconds
-      found.classList.add('search-highlight');
-
-      setTimeout(() => {
-        found.classList.remove('search-highlight');
-      }, 3000);
-    } else {
-      alert(`No match found for: "${query}"`);
-    }
-  }
-
-  function initSearch() {
-    const form = document.getElementById('searchForm');
-    const input = document.getElementById('searchInput');
-    const button = document.getElementById('searchBtn');
-
-    if (form && input) {
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        doSearch(input.value);
-      });
-
-      if (button) {
-        button.addEventListener('click', e => {
-          e.preventDefault();
-          doSearch(input.value);
-        });
-      }
-    }
-  }
-
-  // Initialize search when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSearch);
+    found.classList.add('search-highlight');
+    setTimeout(() => found.classList.remove('search-highlight'), 3000);
   } else {
-    initSearch();
+    alert(`No match found for: "${query}"`);
   }
-})();
+}
+
+// Initialize search on both index and list pages
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById('searchForm');
+  const input = document.getElementById('searchInput');
+  const button = document.getElementById('searchBtn');
+
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      doSearch(input ? input.value : '');
+    });
+  }
+
+  if (button) {
+    button.addEventListener('click', e => {
+      e.preventDefault();
+      doSearch(input ? input.value : '');
+    });
+  }
+});
 
 // ================================================
-// Auto count completed demons on index.html
+// Auto count completed demons (for index.html)
 // ================================================
 async function getCompletedCount(page) {
   try {
-    const response = await fetch(page);
-    const text = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(text, "text/html");
-    const completedSection = doc.querySelector("#completed");
-
-    if (completedSection) {
-      return completedSection.querySelectorAll("li").length;
-    }
-    return 0;
-  } catch (err) {
-    console.error("Error loading " + page, err);
+    const res = await fetch(page);
+    const text = await res.text();
+    const doc = new DOMParser().parseFromString(text, "text/html");
+    const section = doc.querySelector("#completed");
+    return section ? section.querySelectorAll("li").length : 0;
+  } catch (e) {
+    console.error("Count error:", e);
     return 0;
   }
 }
 
-async function updateCounters() {
-  const extremeCount = await getCompletedCount("extreme.html");
-  const insaneCount = await getCompletedCount("insane.html");
-
+document.addEventListener("DOMContentLoaded", async () => {
   const extremeEl = document.getElementById("extreme-count");
   const insaneEl = document.getElementById("insane-count");
 
-  if (extremeEl) extremeEl.textContent = `Completed extremes: ${extremeCount}`;
-  if (insaneEl) insaneEl.textContent = `Completed insanes: ${extremeCount}`;
-}
+  if (extremeEl || insaneEl) {
+    const [extremeCount, insaneCount] = await Promise.all([
+      getCompletedCount("extreme.html"),
+      getCompletedCount("insane.html")
+    ]);
 
-document.addEventListener("DOMContentLoaded", updateCounters);
-
-// ================================================
-// Live Reload (for development)
-// ================================================
-(function(){
-  try {
-    const meta = document.querySelector('meta[name="live-reload-files"]');
-    const files = meta ? meta.content.split(',').map(s => s.trim()).filter(Boolean) :
-      [ (location.pathname.replace(/^\//,'') || 'index.html') ];
-
-    const cache = {};
-
-    files.forEach(f => {
-      fetch(f, { cache: 'no-store' })
-        .then(r => r.text())
-        .then(t => cache[f] = t)
-        .catch(() => cache[f] = null);
-    });
-
-    async function poll(){
-      for (const f of files) {
-        try {
-          const res = await fetch(f, { cache: 'no-store' });
-          if (!res.ok) continue;
-          const t = await res.text();
-          if (cache[f] !== undefined && cache[f] !== t) {
-            console.log('LiveReload: change detected in', f);
-            setTimeout(() => location.reload(true), 80);
-            return;
-          }
-          cache[f] = t;
-        } catch (err) {}
-      }
-    }
-
-    setInterval(poll, 1000);
-
-    document.addEventListener('visibilitychange', function(){
-      if (!document.hidden) poll();
-    });
-  } catch (e) {
-    console.warn('LiveReload script error', e);
+    if (extremeEl) extremeEl.textContent = `Completed extremes: ${extremeCount}`;
+    if (insaneEl) insaneEl.textContent = `Completed insanes: ${insaneCount}`;
   }
-})();
+});
 
 // ================================================
-// MOBILE HAMBURGER MENU (Fixed & Reliable)
+// Mobile Hamburger Menu
 // ================================================
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById('hamburger');
@@ -215,5 +122,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Final note
-console.log("%cDarkclone's Demon Lists - Script loaded successfully", "color: #a855f7; font-weight: bold");
+// Live reload (optional, safe)
+console.log("%c✅ Darkclone Demon Lists script loaded", "color: #a855f7; font-weight: bold");
