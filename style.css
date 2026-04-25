@@ -17,7 +17,6 @@ html, body {
 
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
-  /* Much smoother GD-style dark purple gradient */
   background: linear-gradient(135deg, 
     #0c0f1f 0%, 
     #1a1433 30%, 
@@ -38,7 +37,7 @@ body {
   padding: 0 24px;
 }
 
-/* Navigation - Full edge-to-edge like your screenshot */
+/* Navigation */
 .nav {
   width: 100%;
   background: rgba(8, 10, 20, 0.98);
@@ -100,7 +99,7 @@ body {
 
 .hamburger { display: none; background: none; border: none; font-size: 2rem; color: var(--text); cursor: pointer; }
 
-/* Hero - Matches your screenshot layout better */
+/* Hero */
 .hero {
   display: grid;
   grid-template-columns: 1.35fr 1fr;
@@ -160,8 +159,58 @@ body {
   backdrop-filter: blur(16px);
 }
 
-/* Other styles */
-.grid, .panel {
+/* Grid Cards - FIXED */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 28px;
+  margin-bottom: 80px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  padding: 32px 28px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  box-shadow: var(--glow);
+}
+
+.card .tag {
+  display: inline-block;
+  font-size: 0.87rem;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: 1px dashed var(--panel-border);
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.tag.extreme { color: #f43f5e; border-color: #f43f5e; }
+.tag.insane  { color: #eab308; border-color: #eab308; }
+
+.card h3 {
+  margin-bottom: 12px;
+  font-size: 1.45rem;
+}
+
+.card p {
+  color: var(--muted);
+  flex-grow: 1;
+}
+
+/* Panels & Lists */
+.panel {
   background: var(--panel);
   border: 1px solid var(--panel-border);
   border-radius: 24px;
@@ -170,15 +219,22 @@ body {
   backdrop-filter: blur(12px);
 }
 
-.card:hover, .panel:hover {
-  border-color: var(--accent);
-  box-shadow: var(--glow);
+.panel h2 {
+  margin-bottom: 28px;
+  color: var(--accent);
+  font-size: 1.7rem;
+}
+
+.clean {
+  list-style: none;
 }
 
 .clean li {
   padding: 16px 0;
   border-bottom: 1px dashed rgba(255,255,255,0.1);
 }
+
+.clean li:last-child { border-bottom: none; }
 
 .clean li:hover {
   background: rgba(255,255,255,0.04);
@@ -193,6 +249,13 @@ body {
   margin-bottom: 36px;
   flex-wrap: wrap;
   gap: 16px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 12px;
+  max-width: 480px;
+  width: 100%;
 }
 
 .search-bar input {
@@ -219,16 +282,29 @@ footer {
   color: var(--muted);
 }
 
-#secret-text { cursor: pointer; color: var(--accent); margin-top: 20px; }
+#secret-text {
+  cursor: pointer;
+  color: var(--accent);
+  margin-top: 20px;
+}
 
 /* Responsive */
 @media (max-width: 920px) {
   .hero { grid-template-columns: 1fr; gap: 50px; }
   .hamburger { display: block; }
+  
   .nav-links {
-    position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px);
-    background: rgba(8,10,20,0.98); flex-direction: column; padding: 50px 30px; gap: 24px;
-    transition: left 0.4s ease; z-index: 99;
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: rgba(8,10,20,0.98);
+    flex-direction: column;
+    padding: 50px 30px;
+    gap: 24px;
+    transition: left 0.4s ease;
+    z-index: 99;
   }
   .nav-links.active { left: 0; }
 }
