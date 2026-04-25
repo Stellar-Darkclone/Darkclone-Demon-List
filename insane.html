@@ -7,15 +7,28 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="container">
-    <div class="backbar">
-      <a class="button" href="index.html">← Back to Home</a>
+
+  <!-- Sticky Header -->
+  <div class="list-header">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="Darkclone Logo" class="logo-img">
+        <span>Darkclone</span>
+      </a>
+
+      <div class="nav-links">
+        <a class="button" href="index.html">← Home</a>
+        <a class="button" href="https://www.youtube.com/@darkclonexd/featured" target="_blank" rel="noopener">YouTube</a>
+      </div>
+
       <form id="searchForm" class="search-bar">
         <input type="text" id="searchInput" placeholder="Search demon by name..." autocomplete="off">
         <button id="searchBtn" type="submit">Search</button>
       </form>
     </div>
+  </div>
 
+  <div class="container">
     <h1>Insane Demon List</h1>
     <p class="lead">() = Progress • [] = Runs</p>
     <p class="lead">Ranking referenced to: <a href="https://insanedemonlist.com/" target="_blank" rel="noopener">The Insane Demon List</a></p>
