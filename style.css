@@ -37,7 +37,7 @@ body {
   padding: 0 24px;
 }
 
-/* Navigation */
+/* Navigation - full width */
 .nav {
   width: 100%;
   background: rgba(8, 10, 20, 0.98);
@@ -97,21 +97,22 @@ body {
   box-shadow: var(--glow);
 }
 
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: var(--text);
-  cursor: pointer;
+.hamburger { 
+  display: none; 
+  background: none; 
+  border: none; 
+  font-size: 2rem; 
+  color: var(--text); 
+  cursor: pointer; 
 }
 
-/* Hero */
+/* Hero - Better spacing like your screenshot */
 .hero {
   display: grid;
   grid-template-columns: 1.35fr 1fr;
   gap: 60px;
   margin: 80px 0 100px;
+  padding: 0 20px;           /* added breathing room */
 }
 
 .hero-content h1 {
@@ -166,12 +167,13 @@ body {
   backdrop-filter: blur(16px);
 }
 
-/* Grid Cards */
+/* Grid Cards - More breathing room */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 28px;
   margin-bottom: 80px;
+  padding: 0 20px;           /* prevents cards from touching edges */
 }
 
 .card {
@@ -232,7 +234,7 @@ body {
   font-size: 1.7rem;
 }
 
-/* Update Log */
+/* Update Logs */
 .update-log {
   max-height: 280px;
   overflow-y: auto;
@@ -299,12 +301,10 @@ body {
   color: white;
   border: none;
   cursor: pointer;
-  transition: 0.2s;
 }
 
 .search-bar button:hover {
   background: #9333ea;
-  transform: scale(1.05);
 }
 
 footer {
@@ -321,7 +321,7 @@ footer {
 
 /* Responsive */
 @media (max-width: 920px) {
-  .hero { grid-template-columns: 1fr; gap: 50px; }
+  .hero, .grid { padding: 0 16px; }
   .hamburger { display: block; }
   
   .nav-links {
@@ -341,5 +341,5 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .container, .hero, .grid, .backbar { padding: 0 16px; }
+  .container { padding: 0 16px; }
 }
