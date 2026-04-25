@@ -6,127 +6,92 @@
   <title>Darkclone’s Demon Lists</title>
   <link rel="stylesheet" href="style.css"/>
   <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Darkclone's official Geometry Dash demon list - Extreme, Insane, progress, and hardest completions.">
 </head>
 <body>
-
-<!-- | | | | | | | | | | | | | | | | | | | | | | | | | | | | -->
-  
   <div id="landscape-warning">
-  <p>⚠️ Please zoom out and rotate your phone to landscape for the best experience! ⚠️</p>
-</div>
-  
-<!-- | | | | | | | | | | | | | | | | | | | | | | | | | | | | -->
-  
-  <div class="container">
-  
-<nav class="nav">
-  <a class="brand" href="index.html">
-    <img src="logo.png" alt="Logo" class="logo-img">
-    <span>Hello Stranger.</span>
-  </a>
-
-  <!-- LINKS KO DITO BASTA -->
-  
-  <div class="nav-links">
-    <a class="button" href="https://www.youtube.com/@darkclonexd/featured" target="_blank" rel="noopener">YouTube</a>
-    <a class="button" href="https://docs.google.com/document/d/1Jw5motoaxZjOF2HAp14apUqmkxXeureWHTasxbL2W9M/edit?usp=sharing" target="_blank" rel="noopener">Original List</a>
-    <a class="button" href="https://gdbrowser.com/u/Darkclone" target="_blank" rel="noopener">My GD Account</a>
+    <p>⚠️ For the best experience, rotate your device to landscape mode ⚠️</p>
   </div>
-</nav>
+
+  <div class="container">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="Darkclone Logo" class="logo-img">
+        <span>Darkclone</span>
+      </a>
+
+      <div class="nav-links" id="nav-links">
+        <a class="button" href="https://www.youtube.com/@darkclonexd/featured" target="_blank" rel="noopener">YouTube</a>
+        <a class="button" href="https://docs.google.com/document/d/1Jw5motoaxZjOF2HAp14apUqmkxXeureWHTasxbL2W9M/edit?usp=sharing" target="_blank" rel="noopener">Original List</a>
+        <a class="button" href="https://gdbrowser.com/u/Darkclone" target="_blank" rel="noopener">GD Account</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+    </nav>
 
     <section class="hero">
-      <div>
-        <h1>Welcome to <span style="color:var(--accent)">Darkclone</span>’s Demon Lists</h1>
-        <p class="lead">This is Darkclone’s official website for completions, progress, and wishlist demons.</p>
-        <div class="tabs">
-          <!-- UPDATED HERE -->
-          <span class="tab">Last Update: March 4, 2026</span>
+      <div class="hero-content">
+        <h1>Welcome to <span class="accent">Darkclone</span>’s Demon Lists</h1>
+        <p class="lead">Official hub for my Extreme & Insane demon completions, progress, and wishlist.</p>
+        
+        <div class="stats">
+          <span id="extreme-count">Completed extremes: 0</span>
+          <span id="insane-count">Completed insanes: 0</span>
         </div>
+
+        <div class="update-tag">Last Update: April 26, 2026</div>
       </div>
-      <div class="panel">
-        <!-- Eto yung nasa right side along with latest completion vid -->
-          <div class="kv">
-            <span id="extreme-count">Completed extremes: 0</span>
-            <span id="insane-count">Completed insanes: 0</span>
-          </div>
-        <center><b><p class="lead" style="margin-top:10px">Latest Demon Completion:</p></b></center>
-            <center><iframe 
-      width="320" 
-      height="240" 
-      src="https://www.youtube.com/embed/yLmoj2gUElg"
-      title="YouTube video player" 
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      allowfullscreen>
-    </iframe></center>
 
-        <!-- New Demonlist reference window -->
-        <center><b><p class="lead" style="margin-top:20px">The Rankings I Referenced For Extreme Demon List:</p></b></center>
-        <center>
-          <iframe 
-            src="https://aredl.net/list/119544028?list=classic" 
-            width="320" 
-            height="240" 
-            style="border:1px solid #444; border-radius:10px;" 
-            title="Demonlist Rankings">
-          </iframe>
-        </center>
+      <div class="hero-panel">
+        <h3>Latest Completion</h3>
+        <iframe width="100%" height="240" src="https://www.youtube.com/embed/yLmoj2gUElg" title="Latest Demon Completion" frameborder="0" allowfullscreen></iframe>
 
+        <h3 style="margin-top:24px">Reference List</h3>
+        <iframe src="https://aredl.net/list/119544028?list=classic" width="100%" height="240" style="border:1px solid rgba(255,255,255,0.1); border-radius:12px;" title="AREDL Rankings"></iframe>
       </div>
     </section>
 
-    <!-- Linked to other htmls -->
-    
     <section class="grid">
-  <a class="card" href="topList.html">
-    <span class="tag">Ranking</span>
-    <h3>Top 10 Hardest Completions</h3>
-    <p>My personal hardest completions ranked based on my opinion (Now with Memory rankings!)</p>
-  </a>
+      <a class="card" href="topList.html">
+        <span class="tag">Ranking</span>
+        <h3>Top 10 Hardest Completions</h3>
+        <p>Personal ranking of my hardest demons (now with Memory tier list!)</p>
+      </a>
 
-  <a class="card" href="extreme.html">
-    <span class="tag">Extreme</span>
-    <h3>Extreme Demon List</h3>
-    <p>List for Extreme Demons</p>
-  </a>
+      <a class="card" href="extreme.html">
+        <span class="tag extreme">Extreme</span>
+        <h3>Extreme Demon List</h3>
+        <p>Full list of my Extreme Demons + progress</p>
+      </a>
 
-  <a class="card" href="insane.html">
-    <span class="tag">Insane</span>
-    <h3>Insane Demon List</h3>
-    <p>List for Insane Demons</p>
-  </a>
-</section>
+      <a class="card" href="insane.html">
+        <span class="tag insane">Insane</span>
+        <h3>Insane Demon List</h3>
+        <p>Full list of my Insane Demons + progress</p>
+      </a>
+    </section>
 
-<!-- Update Logs -->
+    <!-- Website Logs -->
+    <div class="panel">
+      <h2>✅ Website Update Logs</h2>
+      <div class="update-log">
+        <ul class="clean">
+          <li>Raw Footage Links added to completions <i>(Jan 29, 2026)</i></li>
+          <li>Insane Demon list now has rankings <i>(Oct 4, 2025)</i></li>
+          <li>Switched reference list to AREDL <i>(Oct 4, 2025)</i></li>
+          <li>Added global search + improved mobile experience <i>(2026)</i></li>
+          <!-- Add more as needed -->
+        </ul>
+      </div>
+    </div>
 
-<div class="panel section" style="margin-top: 40px;">
-  <h2>✅ Website Logs</h2>
-  <div class="update-log">
-    <ul class="clean website-logs">
-      <li>Raw Footage Links are now availble in the completions list!. <i>(January 29, 2026)</i></li>
-      <li>The Insane Demon list now has rankings. <i>(October 4, 2025)</i></li>
-      <li>New list for insane/extreme <i>unrated levels.</i> <i>(October 4, 2025)</i></li>
-      <li>Changed the reference list into <b>AREDL Demon List.</b> <i>(October 4, 2025)</i></li>
-      <li>Added a <b>Search Bar</b> for lists. <i>(September 15, 2025)</i></li>
-      <li>Added the <b>Global Demonlist</b> as a reference list. <i>(September 15, 2025)</i></li>
-      <li>Added List Update Date. <i>(Aug 22, 2025)</i></li>
-      <li>Added square brackets to indicate current rank. Current Format Will Now Be: <br>
-      [CurrentRank] CompletionRank – Name : Attempts | LastDeath | CompletionDate (Device). <i>(Aug 22, 2025)</i></li>
-    </ul>
+    <footer>
+      <p><small>Website by Darkclone • Started 09/01/2025</small></p>
+      <p id="secret-text" style="cursor: pointer; color: var(--accent);">Feeling Lucky?</p>
+    </footer>
   </div>
-</div>
 
-<!-- Copyright -->
-    
-<p><small> Website created by: Darkclone 09/01/2025 </small></p>
-<p id="secret-text" style="cursor: pointer; color: var(--accent);">
-  Feeling Lucky?
-</p>
-
-
-  </div>
-</div>
   <script src="script.js"></script>
-  
 </body>
 </html>
